@@ -1,0 +1,61 @@
+print("=== PROGRAM MANAJEMEN DATA OBAT APOTEK ===")
+print("Daftar 10 Jenis Obat:")
+print("1. Paracetamol    6. Antasida")
+print("2. Amoxicillin    7. Metformin")
+print("3. Vitamin C      8. Atorvastatin")
+print("4. Ibuprofen      9. Omeprazole")
+print("5. Cetirizine    10. Captopril")
+
+# Input pilihan nomor obat dari user
+pilihan_obat = int(input("\nPilih nomor obat (1-10): "))
+jumlah_beli = int(input("Masukkan jumlah yang ingin dibeli: "))
+
+nama_obat = ""
+stok = 0
+harga = 0
+found = True
+
+# Menentukan data obat berdasarkan pilihan nomor menggunakan kondisional
+if pilihan_obat == 1:
+    nama_obat, stok, harga = "Paracetamol", 50, 5000
+elif pilihan_obat == 2:
+    nama_obat, stok, harga = "Amoxicillin", 20, 15000
+elif pilihan_obat == 3:
+    nama_obat, stok, harga = "Vitamin C", 100, 2000
+elif pilihan_obat == 4:
+    nama_obat, stok, harga = "Ibuprofen", 15, 8000
+elif pilihan_obat == 5:
+    nama_obat, stok, harga = "Cetirizine", 30, 6000
+elif pilihan_obat == 6:
+    nama_obat, stok, harga = "Antasida", 45, 4000
+elif pilihan_obat == 7:
+    nama_obat, stok, harga = "Metformin", 25, 12000
+elif pilihan_obat == 8:
+    nama_obat, stok, harga = "Atorvastatin", 12, 25000
+elif pilihan_obat == 9:
+    nama_obat, stok, harga = "Omeprazole", 8, 18000
+elif pilihan_obat == 10:
+    nama_obat, stok, harga = "Captopril", 40, 5000
+else:
+    found = False
+    print("Nomor obat tidak valid! Silakan masukkan angka 1 sampai 10.")
+
+# Proses pengecekan menggunakan operator pembanding dan kondisional
+if found:
+    print(f"\nInformasi Obat: {nama_obat}")
+    print(f"Stok tersedia : {stok} botol/strip")
+    print(f"Harga per unit: Rp{harga}")
+    
+    # Operator Pembanding untuk cek stok
+    if jumlah_beli > stok:
+        print("Status        : Transaksi Gagal. Stok tidak mencukupi!")
+    elif jumlah_beli <= 0:
+        print("Status        : Jumlah pembelian tidak valid.")
+    else:
+        total_harga = jumlah_beli * harga
+        print("Status        : Transaksi Berhasil.")
+        print(f"Total Biaya   : Rp{total_harga}")
+        
+        # Kondisional untuk bonus belanja
+        if total_harga >= 50000:
+            print("Bonus         : Mendapatkan vitamin gratis!")
